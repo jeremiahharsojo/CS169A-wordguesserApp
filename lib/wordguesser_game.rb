@@ -58,7 +58,6 @@ class WordGuesserGame
     elsif !(input.match?(/[a-zA-Z]/))
       raise ArgumentError, "Guess must be an alphabetical character!"
     end
-
     saninput = input.downcase
 
     if @guesses.include?(saninput) || @wrong_guesses.include?(saninput)
