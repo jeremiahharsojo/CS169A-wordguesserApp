@@ -39,7 +39,10 @@ class WordGuesserApp < Sinatra::Base
   # If a guess is repeated, set flash[:message] to "You have already used that letter."
   # If a guess is invalid, set flash[:message] to "Invalid guess."
   post '/guess' do
-    input = params[:guess].to_s[0]
+    input = ''
+    if params[:guess]
+      input = params[:guess].to_s[0]
+    end
     unique_guess = nil
     begin
       unique_guess = @game.guess(input)
